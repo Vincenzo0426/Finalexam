@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ElevatedButton.icon(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue), foregroundColor: MaterialStateProperty.all(Colors.white)),
                 icon: const Icon(Icons.airplanemode_active, color: Colors.white),
-                label: const Text('出發'),
+                label: const Text('出發!!'),
                 onPressed: () => {
                   setState(() {
                     takeOff = !takeOff;
