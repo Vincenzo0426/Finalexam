@@ -105,7 +105,7 @@ class CongratulationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('恭喜! 您抽中了' + ''),
+        title: const Text('恭喜，您抽中了' + ''),
       ),
       body: Center(
         child: ElevatedButton(
