@@ -4,8 +4,8 @@ import 'dart:math';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+   @override
+   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -25,9 +25,9 @@ class MyHomePage extends StatefulWidget {
    Widget build(BuildContext context) {
       return DefaultTextStyle(
          style: Theme
-            .of(context)
-            .textTheme
-            .headline4!,
+             .of(context)
+             .textTheme
+             .headline4!,
          child: Container(
             color: Colors.white,
             alignment: Alignment.center,
@@ -49,11 +49,40 @@ class _MyHomePageState extends State<MyHomePage> {
    Widget build(BuildContext context) {
       return Scaffold(
          appBar: AppBar(
-            title: const Text('選擇困難小飛機'),
+            title: const Text('選擇困難小飛機(不要連續點喔 會墜機)'),
          ),
          body: SizedBox(
             child: Stack(
                children: <Widget>[
+                  //上文字框
+                  TextField(
+                     decoration: InputDecoration(
+                        hintText: '',
+                     ),
+                  ),
+
+                  //下文字框
+                  TextField(
+                     decoration: InputDecoration(
+                        hintText: '',
+                     ),
+                  ),
+
+                  //左文字框
+                  TextField(
+                     decoration: InputDecoration(
+                        hintText: '',
+                     ),
+                  ),
+
+                  //右文字框
+                  TextField(
+                     decoration: InputDecoration(
+                        hintText: '',
+                     ),
+                  ),
+
+                  //動畫
                   AnimatedPositioned(
                      top: fuck1 && takeOff ?  -250 : 100.0,
                      bottom: fuck2 && takeOff ? -300 : 200.0,
@@ -62,9 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
                      duration: const Duration(seconds: 4),
                      curve: Curves.fastLinearToSlowEaseIn,
                      child: const Icon(
-                        Icons.airplanemode_active,
-                        color: Colors.blueGrey,
-                        size: 70.0
+                         Icons.airplanemode_active,
+                         color: Colors.blueGrey,
+                         size: 70.0
                      ),
                   ),
 
@@ -72,13 +101,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                      alignment: Alignment.bottomCenter,
                      child: ElevatedButton(
-                        child: const Text('看結果'),
-                        onPressed: () {
-                           Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const CongratulationPage()),
-                           );
-                        }
+                         child: const Text('還是猶豫不決的話點這裡'),
+                         onPressed: () {
+                            Navigator.push(
+                               context,
+                               MaterialPageRoute(builder: (context) => const CongratulationPage()),
+                            );
+                         }
                      ),
                   ),
 
@@ -92,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                            setState(() {
                               takeOff = !takeOff;
                               if(takeOff){
-                              int random = Random().nextInt(4);
+                                 int random = Random().nextInt(4);
                                  if (random==0) {
                                     fuck1=true;
                                  }
@@ -131,16 +160,17 @@ class CongratulationPage extends StatelessWidget {
    Widget build(BuildContext context) {
       return Scaffold(
          appBar: AppBar(
-            title: const Text('恭喜，您抽中了' + ''),
+            title: const Text('猶豫就會敗北'),
          ),
          body: Center(
             child: ElevatedButton(
                onPressed: () {
                   Navigator.pop(context);
                },
-               child: const Text('回上頁'),
+               child: const Text('再回去抽一次吧!'),
             ),
          ),
       );
    }
 }
+
