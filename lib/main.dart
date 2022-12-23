@@ -22,19 +22,6 @@ class MyHomePage extends StatefulWidget {
    const MyHomePage({super.key});
 
    @override
-   Widget build(BuildContext context) {
-      return DefaultTextStyle(
-         style: Theme
-             .of(context)
-             .textTheme
-             .headline4!,
-         child: Container(
-            color: Colors.white,
-            alignment: Alignment.center,
-            child: const Text('Home Page'),
-         ),
-      );
-   }
    _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -54,34 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
          body: SizedBox(
             child: Stack(
                children: <Widget>[
-                  //上文字框
-                  TextField(
-                     decoration: InputDecoration(
-                        hintText: '',
-                     ),
-                  ),
-
-                  //下文字框
-                  TextField(
-                     decoration: InputDecoration(
-                        hintText: '',
-                     ),
-                  ),
-
-                  //左文字框
-                  TextField(
-                     decoration: InputDecoration(
-                        hintText: '',
-                     ),
-                  ),
-
-                  //右文字框
-                  TextField(
-                     decoration: InputDecoration(
-                        hintText: '',
-                     ),
-                  ),
-
                   //動畫
                   AnimatedPositioned(
                      top: fuck1 && takeOff ?  -250 : 100.0,
@@ -101,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                      alignment: Alignment.bottomCenter,
                      child: ElevatedButton(
-                         child: const Text('還是猶豫不決的話點這裡'),
+                         child: const Text('點這裡把你的想法記起來吧'),
                          onPressed: () {
                             Navigator.push(
                                context,
@@ -160,16 +119,27 @@ class CongratulationPage extends StatelessWidget {
    Widget build(BuildContext context) {
       return Scaffold(
          appBar: AppBar(
-            title: const Text('猶豫就會敗北'),
+            title: const Text('請輸入你想決定的四個選項'),
          ),
-         body: Center(
-            child: ElevatedButton(
-               onPressed: () {
-                  Navigator.pop(context);
-               },
-               child: const Text('再回去抽一次吧!'),
+         body:
+            Column(
+               children: [
+                  Container(
+                     child: TextField(
+                        decoration: InputDecoration(
+                           contentPadding: EdgeInsets.only(left: 0.0, top: 80.0),
+                           labelText: 'A:\nB:\nC:\nD:\n',
+                           border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                           ),
+                        ),
+                        onChanged: (value) {
+                           // Perform some action when the user types in the text field
+                        },
+                     ),
+                  )
+               ]
             ),
-         ),
       );
    }
 }
