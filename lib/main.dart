@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const CongratulationPage()),
+                            MaterialPageRoute(builder: (context) => const PageTwo()),
                          );
                       }
                   ),
@@ -193,8 +193,9 @@ class _MyHomePageState extends State<MyHomePage> {
    }
 }
 
-class CongratulationPage extends StatelessWidget {
-   const CongratulationPage({super.key});
+class PageTwo extends StatelessWidget {
+   const PageTwo({super.key});
+
 
    @override
    Widget build(BuildContext context) {
@@ -205,6 +206,8 @@ class CongratulationPage extends StatelessWidget {
          body:
          Column(
             children: [
+               Image.asset("assets/337651.png", width: 350, height: 350,),
+
                Container(
                   child:
                   TextField(
